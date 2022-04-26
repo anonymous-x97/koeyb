@@ -8,31 +8,14 @@
 #
 # All rights reserved.
 
-#_checkBashReq() {
-#    log "Checking Bash Commands ..."
-#    command -v jq &> /dev/null || quit "Required command : jq : could not be found !"
-#}
 
 _installbuildessentials() {
-    apt -qq update && apt -qq upgrade -y && \
-    apt -qq install -y --no-install-recommends \
-    apt-utils \
-    curl \
-    git \
-    gnupg2 \
-    wget \
-    unzip \
-    tree \
-    gcc zlib1g-dev \
-    apt-transport-https \
-    build-essential coreutils jq pv \
-    ffmpeg mediainfo \
-    neofetch \
-    p7zip-full \
-    libfreetype6-dev libjpeg-dev libpng-dev libgif-dev libwebp-dev\
+    apt update && apt upgrade -y && apt install -y --no-install-recommends apt-utils curl git gnupg2 wget unzip tree gcc python3-dev zlib1g-dev apt-transport-https build-essential coreutils jq pv ffmpeg mediainfo neofetch p7zip-full libfreetype6-dev libjpeg-dev libpng-dev libgif-dev libwebp-dev
+    log " installling essentials"
 }
 
 _installchromes() {
+    log " installing chrome"
     mkdir -p /tmp/ && \
     cd /tmp/ && \
     wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb && \
@@ -41,6 +24,7 @@ _installchromes() {
 }
 
 _installchromed() {
+    log " installling chrome"
     mkdir -p /tmp/ && \
     cd /tmp/ && \
     wget -O /tmp/chromedriver.zip http://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip && \
@@ -155,35 +139,6 @@ _checkUpstreamRepo() {
     updateBuffer
 }
 
-#_setupPlugins() {
-#    local link path tmp
-#    if test $(grep -P '^'$2'$' <<< $3); then
-#        editLastMessage "Cloning $1 Plugins ..."
-#        link=$(test $4 && echo $4 || echo $3)
-#        tmp=Temp-Plugins
-#        gitClone --depth=1 $link $tmp
-#        replyLastMessage "\tInstalling Requirements ..."
-#        upgradePip
-#        installReq $tmp
-#        path=$(tr "[:upper:]" "[:lower:]" <<< $1)
-#        rm -rf userge/plugins/$path/
-#        mv $tmp/plugins/ userge/plugins/$path/
-#        cp -r $tmp/resources/. resources/
-#        rm -rf $tmp/
-#        deleteLastMessage
-#    else
-#        editLastMessage "$1 Plugins Disabled !"
-#    fi
-#}
-
-_checkUnoffPlugins() {
-    # _setupPlugins Xtra true $LOAD_UNOFFICIAL_PLUGINS https://github.com/ashwinstr/Userge-Plugins-Fork.git
-    echo 'Kakashi removed XTRA plugins repo.'
-}
-
-_checkCustomPlugins() {
-    _setupPlugins Custom "https://([0-9a-f]{40}@)?github.com/.+/.+" $CUSTOM_PLUGINS_REPO
-}
 
 _flushMessages() {
     deleteLastMessage
@@ -193,7 +148,6 @@ assertPrerequisites() {
     _installbuildessentials
     _installchromes
     _installchromed
-#    _checkBashReq
     _checkConfigFile
     _checkRequiredVars
 }
@@ -204,7 +158,5 @@ assertEnvironment() {
     _checkTriggers
     _checkPaths
     _checkUpstreamRepo
-#    _checkUnoffPlugins
-#    _checkCustomPlugins
     _flushMessages
 }
