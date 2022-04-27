@@ -1,3 +1,4 @@
+git+https://github.com/pyproject-toml/pyproject-toml
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
 asyncurban
@@ -76,7 +77,6 @@ pydub==0.25.1
 pyfiglet==0.8.post1
 
 ###buildpacks###
-project.toml
 git+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
 git+https://github.com/opendoor-labs/heroku-buildpack-p7zip
 git+https://github.com/ashwinstr/heroku-buildpack-google-chrome
