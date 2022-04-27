@@ -74,3 +74,13 @@ prettytable==3.2.0
 newspaper3k==0.2.8
 pydub==0.25.1
 pyfiglet==0.8.post1
+
+###buildpacks###
+project.toml
+git+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
+git+https://github.com/opendoor-labs/heroku-buildpack-p7zip
+git+https://github.com/ashwinstr/heroku-buildpack-google-chrome
+git+https://github.com/ashwinstr/heroku-buildpack-chromedriver
+git+https://github.com/chrismytton/heroku-buildpack-jq.git
+git+https://github.com/justaprudev/heroku-buildpack-neofetch.git
+git+https://github.com/dishapatel010/mediainfo_buildpack.git
