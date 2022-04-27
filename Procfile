@@ -1,1 +1,1 @@
-docker: bash Dockerfile
+worker: bash Dockerfile
