@@ -1,4 +1,9 @@
-git+https://github.com/pyproject-toml/pyproject-toml
+jq
+py7zr
+ffmpeg
+chromedriver-py
+MediaInfo
+
 aiofiles>=0.6.0
 aiohttp[speedups]>=3.7.3
 asyncurban
@@ -75,12 +80,3 @@ prettytable==3.2.0
 newspaper3k==0.2.8
 pydub==0.25.1
 pyfiglet==0.8.post1
-
-###buildpacks###
-git+https://github.com/jonathanong/heroku-buildpack-ffmpeg-latest.git
-git+https://github.com/opendoor-labs/heroku-buildpack-p7zip
-git+https://github.com/ashwinstr/heroku-buildpack-google-chrome
-git+https://github.com/ashwinstr/heroku-buildpack-chromedriver
-git+https://github.com/chrismytton/heroku-buildpack-jq.git
-git+https://github.com/justaprudev/heroku-buildpack-neofetch.git
-git+https://github.com/dishapatel010/mediainfo_buildpack.git
