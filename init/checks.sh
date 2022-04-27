@@ -10,8 +10,7 @@
 
 
 _b() {
-    apt update && apt upgrade -y && apt install -y --no-install-recommends apt-utils curl git gnupg2 wget unzip tree gcc python3-dev zlib1g-dev apt-transport-https build-essential coreutils jq pv ffmpeg mediainfo neofetch p7zip-full libfreetype6-dev libjpeg-dev libpng-dev libgif-dev libwebp-dev
-    log " installling essentials"
+    export $PYTHONPATH=/workspace/.heroku/python/lib/python3.10/site-packages:$PYTHONPATH
 }
 
 _checkConfigFile() {
